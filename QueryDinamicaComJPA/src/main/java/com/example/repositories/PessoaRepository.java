@@ -26,7 +26,7 @@ public interface PessoaRepository extends JpaRepository<Pessoa, Long> {
 		}
 
 		if (email != null && !email.isBlank()) {
-			query += "pe.email = :email";
+			query += condicao + "LOWER(pe.email) = LOWER(:email)";
 			condicao = "AND ";
 		}
 
