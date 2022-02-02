@@ -1,6 +1,7 @@
 package com.example.models;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -15,17 +16,19 @@ public class Pessoa implements Serializable{
 	private String nome;
 	private String email;
 	private String cpf;
+	private LocalDate dataNascimento;
 	
 	public Pessoa() {
 		
 	}
 
-	public Pessoa(Long id, String nome, String email, String cpf) {
+	public Pessoa(Long id, String nome, String email, String cpf, LocalDate dataNascimento) {
 		super();
 		this.id = id;
 		this.nome = nome;
 		this.email = email;
 		this.cpf = cpf;
+		this.dataNascimento = dataNascimento;
 	}
 
 	public Long getId() {
@@ -60,11 +63,20 @@ public class Pessoa implements Serializable{
 		this.cpf = cpf;
 	}
 
+	public LocalDate getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public void setDataNascimento(LocalDate dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
 	@Override
 	public String toString() {
-		return "Pessoa [id=" + id + ", nome=" + nome + ", email=" + email + ", cpf=" + cpf + "]";
+		return "Pessoa [id=" + id + ", nome=" + nome + ", email=" + email + ", cpf=" + cpf + ", dataNascimento="
+				+ dataNascimento + "]";
 	}
-	
+
 	
 	
 

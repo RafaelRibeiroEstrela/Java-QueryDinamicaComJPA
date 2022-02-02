@@ -1,5 +1,7 @@
 package com.example;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 
 import javax.persistence.EntityManager;
@@ -28,9 +30,11 @@ public class QueryDinamicaComJpaApplication implements CommandLineRunner{
 	@Override
 	public void run(String... args) throws Exception {
 		
-		Pessoa pessoa1 = new Pessoa(1L, "Carlos", "carlos@gmail.com", "05616139157");
-		Pessoa pessoa2 = new Pessoa(2L, "Maria", "maria@gmail.com", "05616139156");
-		Pessoa pessoa3 = new Pessoa(3L, "Laura", "laura@gmail.com", "05616139155");
+		DateTimeFormatter dtf = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		
+		Pessoa pessoa1 = new Pessoa(1L, "Carlos", "carlos@gmail.com", "04457898741", LocalDate.parse("10/10/1990", dtf));
+		Pessoa pessoa2 = new Pessoa(2L, "Maria", "maria@gmail.com", "04457898742", LocalDate.parse("15/08/1995", dtf));
+		Pessoa pessoa3 = new Pessoa(3L, "Laura", "laura@gmail.com", "04457898743", LocalDate.parse("28/04/2001", dtf));
 		
 		pessoaRepository.saveAll(Arrays.asList(pessoa1, pessoa2, pessoa3));
 		
