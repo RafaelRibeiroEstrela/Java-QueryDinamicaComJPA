@@ -38,9 +38,10 @@ public class QueryDinamicaComJpaApplication implements CommandLineRunner{
 		
 		pessoaRepository.saveAll(Arrays.asList(pessoa1, pessoa2, pessoa3));
 		
-		System.out.println(pessoaRepository.findByParam(em, null, pessoa1.getEmail(), null));
+		//System.out.println(pessoaRepository.findByParam(em, null, pessoa1.getEmail(), null));
+		System.out.println(pessoaRepository.findByParam(em, null, null, null, null, "08"));
 		
-		
+		System.out.println(pessoaRepository.getResult());
 		
 		
 	}
